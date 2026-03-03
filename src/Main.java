@@ -1,10 +1,21 @@
 public class Main {
 
     public static void main(String[] args) {
-        String telefone = "36655951";
 
-        String resultado = TelefoneUtils.padronizarTelefoneBR(telefone);
+        String telefones = "seu-telefone";
 
-        System.out.println(resultado);
+        String[] lista = telefones.split("\\R");
+
+        for (String telefone : lista) {
+
+            if (telefone.isBlank()) continue;
+
+            try {
+                String resultado = TelefoneUtils.padronizarTelefoneBR(telefone);
+                System.out.println(resultado);
+            } catch (Exception e) {
+                System.out.println("INVÁLIDO → " + telefone);
+            }
+        }
     }
 }
